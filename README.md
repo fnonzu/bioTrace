@@ -3,6 +3,18 @@
 ## Overview
 This repository contains R workflow for processing and analyzing 16S rRNA amplicon sequencing data from soil samples of an environmental gradient study. The pipeline covers data preprocessing, quality control, diversity analysis, and environmental variable associations.
 
+## Example Outputs 🔍
+
+<div align="center">
+
+| Alpha Diversity | Beta Diversity |
+|-----------------|----------------|
+| <img src="![combined_shannon_diversity](https://github.com/user-attachments/assets/4fb3fef7-7231-43b0-a140-7d03ea9761a2)" width="90%"><br><em>Shannon diversity across samples</em> | <img src="![beta_diversity_final_V5V7](https://github.com/user-attachments/assets/79930cd1-595f-443c-a937-896620d765f0)" width="90%"><br><em>NMDS ordination by sample type</em> |
+| **Taxonomic Composition** | **Environmental Correlations** |
+| <img src="![top15_genus_composition_V5V7](https://github.com/user-attachments/assets/51476c9a-908b-4f01-b889-f8d1a41fbd39)" width="90%"><br><em>Genus-level composition</em> | <img src="![CCA_plot_PbCu_orig_V5V7](https://github.com/user-attachments/assets/c4bd47c0-87b9-4531-9282-80cc3f92c0d9)" width="90%"><br><em>CCA with Pb/Cu concentrations</em> |
+
+</div>
+
 ## Workflow Summary
 
 ### **Core Analysis**
