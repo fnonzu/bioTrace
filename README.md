@@ -3,21 +3,21 @@
 ## Overview
 This repository contains R workflow for processing and analyzing 16S rRNA amplicon sequencing data from soil samples of an environmental gradient study. The pipeline covers data preprocessing, quality control, diversity analysis, and environmental variable associations.
 
-## Example Outputs 🔍
+## Example outputs 🔍
 
 <div align="center">
 
-| Alpha Diversity | Beta Diversity |
+| **Alpha diversity** | **Taxonomic composition** |
 |-----------------|----------------|
-| <img src="![combined_shannon_diversity](https://github.com/user-attachments/assets/4fb3fef7-7231-43b0-a140-7d03ea9761a2)" width="90%"><br><em>Shannon diversity across samples</em> | <img src="![beta_diversity_final_V5V7](https://github.com/user-attachments/assets/79930cd1-595f-443c-a937-896620d765f0)" width="90%"><br><em>NMDS ordination by sample type</em> |
-| **Taxonomic Composition** | **Environmental Correlations** |
-| <img src="![top15_genus_composition_V5V7](https://github.com/user-attachments/assets/51476c9a-908b-4f01-b889-f8d1a41fbd39)" width="90%"><br><em>Genus-level composition</em> | <img src="![CCA_plot_PbCu_orig_V5V7](https://github.com/user-attachments/assets/c4bd47c0-87b9-4531-9282-80cc3f92c0d9)" width="90%"><br><em>CCA with Pb/Cu concentrations</em> |
+| <img src="plots/combined_shannon_diversity.png" width="90%"><br><em>Shannon diversity across samples</em> | <img src="plots/top15_genus_composition_V5V7.png" width="90%"><br><em>Genus-level composition</em> |
+| **Metadata analysis** | **Environmental correlations** |
+| <img src="plots/metadata_plot_3inrow.png" width="90%"><br><em>Metadata visualization</em> | <img src="plots/CCA_plot_PbCu_orig_V5V7.png" width="90%"><br><em>CCA with Pb/Cu concentrations</em> |
 
 </div>
 
-## Workflow Summary
+## Workflow summary
 
-### **Core Analysis**
+### **Core analysis**
 | Script | Description |
 |--------|-------------|
 | `01_data_import.R` | Raw data import and phyloseq object creation |
@@ -25,27 +25,27 @@ This repository contains R workflow for processing and analyzing 16S rRNA amplic
 | `02_qc_zymoST.R` | Quality control using ZymoBIOMICS standards |
 | `03_metadata_processing.R` | Processes environmental metadata (Pb, Cu concentrations) |
 
-### **Diversity Analysis**
+### **Diversity analysis**
 | Script | Description |
 |--------|-------------|
 | `04.5_library_size.R` | Library size diagnostics and filtering |
 | `04_rarefaction_diversity_analysis.R` | Rarefaction curve generation and depth optimization |
 | `05_diversity_taxa_composition.R` | Alpha/beta diversity and taxonomic composition analysis |
 
-### **Advanced Analyses**
+### **Advanced analysis**
 | Script | Description |
 |--------|-------------|
 | `06_CCA.R` | Canonical Correspondence Analysis with environmental variables |
 | `07_maaslin_metadata.R` | Differential abundance analysis using MaAsLin2 |
 
-## Folder Structure 
+## Folder structure 
 ```bash
 ├── 00_raw_data/          # Input files (RDS, Excel metadata)
 ├── plots/                # Generated visualizations
 └── results/              # Final statistical outputs
 ```
 
-## Key Features 
+## Key features 
 - Dual analysis paths for raw vs filtered samples
 - V-region specific processing
 - Environmental metadata integration
