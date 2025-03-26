@@ -10,14 +10,9 @@ library(dplyr)
 #           phy_regions_filtered (only pollution V regions)
 
 # ---------------------------
-# Function Definitions
+# Function to exlore phyloseq object
 # ---------------------------
 
-#' Explore Phyloseq Object Structure
-#' 
-#' Prints key components of a phyloseq object for initial inspection
-#' 
-#' @param phy_obj A phyloseq object to explore
 explore_phyloseq_structure <- function(phy_obj) {
   message("\n=== Phyloseq Object Structure ===\n")
   print(phy_obj)
@@ -26,6 +21,14 @@ explore_phyloseq_structure <- function(phy_obj) {
   print(head(sample_data(phy_obj)))
 }
 
+explore_region_structure <- function(phy_regions) {
+  for (region in names(phy_regions)) {
+    cat("\n--- Region:", region, "---\n")
+    phy_obj <- phy_regions[[region]]
+    cat("Number of Samples:", nsamples(phy_obj), "\n")
+    cat("Number of Taxa:", ntaxa(phy_obj), "\n")
+  }
+}
 # ---------------------------
 # Data Import and Preparation
 # ---------------------------
@@ -107,3 +110,16 @@ for (region in v_regions) {
   # Store processed object
   phy_regions_filtered[[region]] <- phy_region
 }
+
+explore_region_structure(phy_regions_filtered)
+
+
+# ---------------------------
+# V Region Subsetting (samples 3-8)
+# ---------------------------
+
+
+phy_regions_filtered_subset <- lapply(phy_regions_filtered, function(ps_obj) {
+  sample_data(ps_obj)$sample_num <- as.numeric(sub("_.*", "", sample_data(ps_obj)$description))
+  subset_samples(ps_obj, sample_num %in% 3:8)
+})
